@@ -1,0 +1,69 @@
+<!--<!DOCTYPE html>-->
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Striped Table</h4>
+<!--                  <p class="card-description">-->
+<!--                    Add class <code>.table-striped</code>-->
+<!--                  </p>-->
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>
+                            First Name
+                          </th><th> Second Name</th>
+
+                          <th>
+                          Email
+                          </th>
+
+                          <th>
+                            Delivering Address
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for d in data %}
+                        <tr>
+
+                          <td>
+                            {{d.FName}}
+                          </td>
+                           <td>
+                            {{d.SName}}
+                          </td>
+                           <td>
+                            {{d.Email}}
+                          </td>
+                           <td>
+                             {{d.Address}}
+                            {{d.State}}
+                             {{d.Country}}
+                             {{d.Pincode}}
+                          <td>
+                            <form action="{% url 'deletedetails' dataid=d.id %}">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                              </form>
+                          </td>
+                        </tr>
+                      {% endfor %}
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+</body>
+</html>
+{% endblock %}
